@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Shravni 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffe0f0, #ffd6f3);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-y: auto;
+      overflow-x: hidden;
+      position: relative;
+      padding: 2rem 1rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 2rem;
+      border-radius: 2rem;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      z-index: 2;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2, p {
+      animation: textFade 1s ease-in-out;
+    }
+
+    @keyframes textFade {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #111;
+      animation-delay: 0.2s;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 0.5rem;
+      color: #e91e63;
+      animation-delay: 0.4s;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-top: 1rem;
+      color: #444;
+      animation-delay: 0.6s;
+    }
+
+    .image-container {
+      margin-top: 1.5rem;
+      overflow: hidden;
+      width: 100%;
+      max-height: 250px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      display: none;
+    }
+
+    .image-container img.active {
+      display: block;
+    }
+
+    .floating {
+      position: absolute;
+      animation: float 10s infinite ease-in-out;
+      font-size: 1.5rem;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    .surprise-btn {
+      margin-top: 1.5rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ff82b2;
+      color: white;
+      border: none;
+      border-radius: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .surprise-btn:hover {
+      background-color: #ff4d94;
+    }
+
+    .hidden-message {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: #e91e63;
+      opacity: 0;
+      transform: scale(0.9);
+      transition: all 0.5s ease;
+      max-height: 0;
+      overflow: hidden;
+    }
+
+    .hidden-message.revealed {
+      opacity: 1;
+      transform: scale(1);
+      max-height: 500px;
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        padding: 1.2rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .image-container {
+        max-height: 200px;
+      }
+
+      .image-container img {
+        max-height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Emojis -->
+  <script>
+    const emojis = [ "🍓", "🍓","💌" ,"🥝","🥝"];
+    for (let i = 0; i < 200; i++) {
+      const floaty = document.createElement("div");
+      floaty.classList.add("floating");
+      floaty.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      floaty.style.left = Math.random() * 100 + "%";
+      floaty.style.top = Math.random() * 100 + "%";
+      floaty.style.fontSize = 20 + Math.random() * 24 + "px";
+      floaty.style.animationDuration = 6 + Math.random() * 6 + "s";
+      document.body.appendChild(floaty);
+    }
+  </script>
+
+  <!-- Birthday Card -->
+  <div class="card">
+    <h1>Happy 17th Birthday</h1>
+    <h2>Shravni Cutu 💖</h2>
+    <p>You’re not just my girlfriend, you're the one I cherish the most.</p>
+    <p>You're my safe space, my giggles in silence, and my forever comfort. I'm so lucky to have you. ✨</p>
+
+    <!-- Image Slideshow -->
+    <div class="image-container">
+      <img src="images/png1.png" alt="Happy Moments" class="active">
+      <img src="images/png2.png" alt="Happy Moments">
+      <img src="images/png3.png" alt="Happy Moments">
+      <img src="images/png4.png" alt="Happy Moments">
+    </div>
+
+    <button class="surprise-btn" onclick="showSurprise()">💌 Tap for Hidden Msg</button>
+    <div id="hiddenMsg" class="hidden-message">
+      You light up my world in ways you’ll never know.<br>
+      No matter what, I’ll always be here for you.<br>
+      Happy Birthday my love, my best friend, my Shravni 💖🌸
+    </div>
+  </div>
+
+  <!-- JS for Slideshow + Button -->
+  <script>
+    const slides = document.querySelectorAll('.image-container img');
+    let index = 0;
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 2500);
+
+    function showSurprise() {
+      const msg = document.getElementById('hiddenMsg');
+      msg.classList.add('revealed');
+    }
+  </script>
+</body>
+</html>
