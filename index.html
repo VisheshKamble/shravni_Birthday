@@ -1,79 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Happy Birthday Shravni 🎉</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday — Shravni</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@400;700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+    :root {
+      --pink-1: #ffccd5;
+      --pink-2: #ff99cc;
+      --accent: #ff3e80;
+      --glass: rgba(255, 230, 238, 0.9);
+      --muted: #5a5a5a;
+      --gold: #ffd700;
+      --glow: 0 0 20px rgba(255, 105, 180, 0.8);
     }
-
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      background: linear-gradient(135deg, #ffe0f0, #ffd6f3);
-      min-height: 100vh;
+      margin: 0;
+      font-family: "Inter", system-ui, Arial;
+      background: linear-gradient(160deg, var(--pink-1), var(--pink-2));
       display: flex;
-      justify-content: center;
       align-items: center;
-      overflow-y: auto;
-      overflow-x: hidden;
-      position: relative;
-      padding: 2rem 1rem;
+      justify-content: center;
+      overflow: hidden;
+      padding: 32px;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.95);
-      padding: 2rem;
-      border-radius: 2rem;
-      max-width: 420px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-      z-index: 2;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    h1, h2, p {
-      animation: textFade 1s ease-in-out;
-    }
-
-    @keyframes textFade {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #111;
-      animation-delay: 0.2s;
-    }
-
-    h2 {
-      font-size: 1.4rem;
-      margin-top: 0.5rem;
-      color: #e91e63;
-      animation-delay: 0.4s;
-    }
-
-    p {
-      font-size: 1rem;
-      margin-top: 1rem;
-      color: #444;
-      line-height: 1.5;
-      animation-delay: 0.6s;
-    }
-
-    .image-container {
+       .image-container {
       margin-top: 1.5rem;
       overflow: hidden;
       width: 100%;
@@ -99,141 +57,665 @@
       display: block;
     }
 
+    /* BACKGROUND EMOJIS */
     .floating {
       position: absolute;
-      animation: float 10s infinite ease-in-out;
-      font-size: 1.5rem;
       pointer-events: none;
       z-index: 0;
+      mix-blend-mode: overlay;
+      filter: saturate(1.8) blur(0.6px) drop-shadow(var(--glow));
+      will-change: transform, opacity;
+      user-select: none;
+      animation: floatUp 7s ease-in-out infinite;
     }
 
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(1); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    @keyframes floatUp {
+      0% { transform: translateY(80vh) rotate(-15deg) scale(0.7); opacity: 0; }
+      25% { opacity: 0.8; }
+      50% { transform: translateY(30vh) rotate(30deg) scale(1.3); }
+      100% { transform: translateY(-40vh) rotate(15deg) scale(1.0); opacity: 0; }
     }
 
-    .surprise-btn {
-      margin-top: 1.5rem;
-      padding: 0.6rem 1.2rem;
-      font-size: 1rem;
-      background-color: #ff82b2;
-      color: white;
-      border: none;
-      border-radius: 1.2rem;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(233, 30, 99, 0.3);
-      transition: all 0.3s ease;
+    /* GLASS CARD */
+    .stage {
+      position: relative;
+      width: min(960px, 96vw);
+      max-width: 960px;
+      height: min(680px, 92vh);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
     }
 
-    .surprise-btn:hover {
-      background-color: #ff4d94;
+    .card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255, 230, 238, 0.95), rgba(255, 204, 213, 0.85));
+      border-radius: 28px;
+      padding: 35px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.25);
+      backdrop-filter: blur(15px) saturate(150%);
+      border: 1px solid rgba(255, 204, 213, 0.5);
+      transform-style: preserve-3d;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      overflow: visible;
+      width: 100%;
+      max-width: 620px;
     }
 
-    .hidden-message {
-      margin-top: 1.5rem;
-      font-size: 1rem;
-      color: #e91e63;
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 0.5s ease;
-      max-height: 0;
-      overflow: hidden;
+    .card:hover {
+      transform: translateZ(12px) scale(1.03);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.3);
     }
 
-    .hidden-message.revealed {
-      opacity: 1;
-      transform: scale(1);
-      max-height: 500px;
+    .left {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    @media (max-width: 500px) {
-      .card {
-        padding: 1.2rem;
-      }
-
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      h2 {
-        font-size: 1.2rem;
-      }
-
-      .image-container {
+    h1 {
+      font-family: "Dancing Script", cursive;
+      font-size: 50px;
+      margin: 0;
+      color: var(--accent);
+      letter-spacing: 1.2px;
+      transform: translateZ(45px);
+      text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #1a1a1a;
+      font-weight: 600;
+      font-family: "Poppins", sans-serif;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 17px;
+      margin-top: 12px;
+      max-width: 360px;
+      font-family: "Poppins", sans-serif;
+    }
+     .image-container {
         max-height: 200px;
       }
 
       .image-container img {
         max-height: 200px;
       }
+
+    /* POLAROID INSIDE CARD */
+  /* Polaroid Photo Styles */
+.polaroid-container {
+    display: flex; /* was none */
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.polaroid {
+    background: white;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+    width: 150px;
+    cursor: pointer;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.polaroid:hover {
+    transform: scale(1.05);
+}
+
+.polaroid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.polaroid p {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    margin-top: 5px;
+    font-size: 1.2rem;
+}
+
+
+    .caption {
+      margin-top: 14px;
+      text-align: center;
+      font-family: "Dancing Script", cursive;
+      font-size: 19px;
+      color: #2a2a2a;
+      letter-spacing: 0.5px;
+    }
+
+    .polaroid.show {
+      opacity: 1;
+    }
+
+    /* CTA BUTTONS */
+    .controls {
+      display: flex;
+      gap: 18px;
+      margin-top: 24px;
+      transform: translateZ(35px);
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      padding: 16px 22px;
+      background: linear-gradient(180deg, #ff80b3, #ff4081);
+      color: white;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: "Poppins", sans-serif;
+      box-shadow: 0 15px 40px rgba(255, 64, 129, 0.3);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 18px 50px rgba(255, 64, 129, 0.4);
+    }
+    .btn.secondary {
+      background: linear-gradient(180deg, #fff, #ffe6f0);
+      color: var(--accent);
+      border: 1px solid rgba(255, 64, 129, 0.2);
+      box-shadow: none;
+    }
+    .btn.secondary:hover {
+      background: linear-gradient(180deg, #ffe6f0, #fff);
+    }
+
+    /* SHIMMER */
+    .shimmer {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: linear-gradient(90deg, rgba(255, 204, 213, 0) 0%, rgba(255, 204, 213, 0.6) 50%, rgba(255, 204, 213, 0) 100%);
+      transform: translateX(-120%);
+      filter: blur(35px);
+      animation: shimmer 2.2s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-120%); }
+      100% { transform: translateX(120%); }
+    }
+
+    /* MESSAGE MODAL */
+    .message-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 40% 30%, rgba(255, 153, 204, 0.95), rgba(255, 204, 213, 0.85));
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.7s ease;
+      flex-direction: column;
+      gap: 28px;
+      padding: 24px;
+    }
+    .message-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .message-modal .message {
+      font-family: "Dancing Script", cursive;
+      font-size: 42px;
+      color: white;
+      text-shadow: 0 6px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 85vw;
+      padding: 28px;
+      background: rgba(255, 204, 213, 0.2);
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+    }
+    .message-modal .close-btn {
+      background: var(--accent);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      box-shadow: 0 10px 30px rgba(255, 62, 128, 0.35);
+    }
+    .message-modal .close-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 12px 35px rgba(255, 62, 128, 0.45);
+    }
+
+    /* VIDEO MODAL */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 50%, rgba(255, 153, 204, 0.9), rgba(255, 204, 213, 0.6));
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease, background 0.8s ease;
+      flex-direction: column;
+      gap: 28px;
+      padding: 24px;
+    }
+    .video-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .video-modal video {
+      max-width: 85vw;
+      max-height: 70vh;
+      border-radius: 18px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.45);
+      border: 2px solid rgba(255, 204, 213, 0.3);
+      transform: scale(0.9);
+      transition: transform 0.6s ease, box-shadow 0.6s ease;
+    }
+    .video-modal.show video {
+      transform: scale(1);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    }
+    .video-modal .message {
+      font-family: "Dancing Script", cursive;
+      font-size: 40px;
+      color: white;
+      text-shadow: 0 6px 25px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 85vw;
+      padding: 24px;
+      background: rgba(255, 204, 213, 0.2);
+      border-radius: 18px;
+      backdrop-filter: blur(12px);
+      opacity: 0;
+      transition: opacity 0.7s ease;
+    }
+    .video-modal.show-message .message {
+      opacity: 1;
+    }
+    .video-modal .close-btn {
+      background: var(--accent);
+      color: white;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      box-shadow: 0 10px 30px rgba(255, 62, 128, 0.35);
+    }
+    .video-modal .close-btn:hover {
+      transform: scale(1.12);
+      box-shadow: 0 12px 35px rgba(255, 62, 128, 0.45);
+    }
+
+    /* FINAL SCENE */
+    .final {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 20%, rgba(255, 153, 204, 0.98), rgba(255, 204, 213, 0.88));
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1.3s ease;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .final.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .final h1 {
+      font-size: 70px;
+      color: #fff;
+      text-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    }
+    .final p {
+      color: rgba(255,255,255,0.95);
+      font-size: 24px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    /* CONFETTI */
+    .confetti {
+      position: fixed;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      z-index: 60;
+      pointer-events: none;
+      border-radius: 3px;
+      will-change: transform, opacity;
+      filter: drop-shadow(0 0 6px rgba(255, 62, 128, 0.6));
+    }
+
+    @media (max-width: 880px) {
+      .stage {
+        padding: 16px;
+      }
+      .card {
+        padding: 22px;
+      }
+      .polaroid {
+        width: 160px;
+      }
+      .polaroid img {
+        height: 120px;
+      }
+      .polaroid-container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .video-modal video {
+        max-width: 90vw;
+        max-height: 55vh;
+      }
+      .video-modal .message,
+      .message-modal .message {
+        font-size: 30px;
+      }
+      .final h1 {
+        font-size: 55px;
+      }
+      .final p {
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
-
-  <!-- Background Emojis -->
+  <!-- Floating emojis -->
   <script>
     const emojis = ["🍓", "💌", "🥝"];
-    for (let i = 0; i < 200; i++) {
-      const floaty = document.createElement("div");
-      floaty.classList.add("floating");
-      floaty.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-      floaty.style.left = Math.random() * 100 + "%";
-      floaty.style.top = Math.random() * 100 + "%";
-      floaty.style.fontSize = 20 + Math.random() * 24 + "px";
-      floaty.style.animationDuration = 6 + Math.random() * 6 + "s";
-      document.body.appendChild(floaty);
+    for (let i = 0; i < 300; i++) {
+      const el = document.createElement('div');
+      el.className = 'floating';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      el.style.left = Math.random() * 100 + '%';
+      el.style.top = Math.random() * 100 + '%';
+      el.style.fontSize = (20 + Math.random() * 60) + 'px';
+      el.style.opacity = (0.4 + Math.random() * 0.4).toString();
+      el.style.animationDuration = (5 + Math.random() * 10) + 's';
+      el.style.animationDelay = (Math.random() * 4) + 's';
+      el.style.transform = `rotate(${(Math.random() * 120 - 60).toFixed(1)}deg) scale(${1.0 + Math.random() * 0.5})`;
+      el.style.zIndex = 0;
+      el.style.pointerEvents = 'none';
+      document.body.appendChild(el);
     }
   </script>
 
-  <!-- Birthday Card -->
-  <div class="card">
-    <h1>Happy 17th Birthday!</h1>
-    <h2>Dear Shravni Cutu 🍓</h2>
-    <p>Hey Cutu, a very happy 17th birthday to my girl! I love you the most 💌!</p>
-    <p>My home and my forever comfort, I love you!</p>
+  <!-- Stage -->
+  <div class="stage" id="stage">
+    <!-- Card with polaroids -->
+    <div class="card left" id="card">
+      <h1>Happy 17th Birthday</h1>
+      <h2>Shravni Cutu 🎂✨</h2>
+      <div class="subtitle" id="subtitle">
+        You’re my sunshine, my laughter, and my heart’s home. This page is a little gift to celebrate how much you mean to me.
+      </div>
 
-    <!-- Image Slideshow -->
-    <div class="image-container">
+          <div class="image-container">
       <img src="images/png1.png" alt="Happy Moments" class="active">
       <img src="images/png2.png" alt="Happy Moments">
       <img src="images/png3.png" alt="Happy Moments">
       <img src="images/png4.png" alt="Happy Moments">
     </div>
+       
 
-    <button class="surprise-btn" onclick="showSurprise()">💌 Tap for Hidden Msg</button>
-    <div id="hiddenMsg" class="hidden-message">
-      Hey Cutu, again a very happy birthday!<br>
-      I don’t know where to start, but honestly, I feel so lucky to be yours.<br>
-      No matter what, I’ll always be here for you.<br>
-      I always want to be your favorite boy and will always try to make you feel safe and happy.<br>
-      I’m so lucky to have you!<br>
-      Sometimes I fight, and sometimes I’ve disappointed you,<br>
-      but I never really meant it—I'm truly sorry for that, and I will improve.<br>
-      I always want to be loved by you! The last 10 months have been the happiest with you around.<br>
-      Please always be mine!<br>
-      Sorry for all the fights! Thank you for all the love!<br>
-      Happy Birthday, my love, my Shravni 🍓!<br>
-      P.S.: More surprises coming your way!<br><br>
-      - Kiwi 🥝
+      <div class="controls" aria-hidden="false">
+        <button class="btn" id="startBtn">Start Surprise</button>
+        <button class="btn secondary" id="revealBtn">Reveal Love</button>
+      </div>
+
+
+      <!-- Shimmer -->
+      <div class="shimmer" id="shimmer" style="width:200px;height:140px;right:-50px;top:-50px;position:absolute;border-radius:35%;transform:rotate(25deg)"></div>
     </div>
   </div>
 
-  <!-- JS for Slideshow + Button -->
-  <script>
-    const slides = document.querySelectorAll('.image-container img');
-    let index = 0;
-    setInterval(() => {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-    }, 2500);
+  <!-- Message Modal -->
+  <div class="message-modal" id="messageModal">
+    <div class="message">
+      My Dearest Shravni, <br>
+      On your 17th birthday, I want you to know you’re my everything—my joy, my comfort, and my forever love. Every moment with you feels like a gift, and I can’t wait to make more memories together. Happy Birthday, my heart! ❤️
+    </div>
+    <button class="close-btn" id="closeMessage">Close</button>
+  </div>
 
-    function showSurprise() {
-      const msg = document.getElementById('hiddenMsg');
-      msg.classList.add('revealed');
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <video controls preload="auto" muted>
+      <source src="shravniBday.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="message" id="videoMessage">
+      Happy Birthday, Shravni! This video is a little piece of my heart for you—here’s to our love and all the beautiful moments ahead! ❤️
+    </div>
+    <button class="close-btn" id="closeVideo">Close</button>
+  </div>
+
+  <!-- Final Overlay -->
+  <div class="final" id="final">
+    <h1>I Love You, Shravni ❤️</h1>
+    <p>Always & forever — thank you for being my everything.</p>
+    <button class="btn" id="closeFinal">Close</button>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Helpers
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+    // Card tilt
+    const card = document.getElementById('card');
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width;
+      const py = (e.clientY - r.top) / r.height;
+      const rx = (py - 0.5) * 14;
+      const ry = (px - 0.5) * -20;
+      card.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(12px)`;
+    });
+    card.addEventListener('mouseleave', () => card.style.transform = '');
+
+    // Polaroids
+    const polaroids = Array.from(document.querySelectorAll('.polaroid'));
+    polaroids.forEach(p => {
+      const rx = (Math.random() * 30 - 15);
+      const ry = (Math.random() * 18 - 9);
+      p.style.transform = `rotate(${getComputedStyle(p).getPropertyValue('--rot')}) translate(${rx}px, ${ry}px) scale(0.98)`;
+    });
+
+    // Start Surprise: Show message modal
+    const startBtn = document.getElementById('startBtn');
+    const messageModal = document.getElementById('messageModal');
+    const closeMessage = document.getElementById('closeMessage');
+    const shimmer = document.getElementById('shimmer');
+    startBtn.addEventListener('click', startSurprise);
+
+    function startSurprise() {
+      // Show message modal
+      messageModal.classList.add('show');
+      // Trigger confetti
+      confettiBurst();
+      // Show polaroids with stagger
+      polaroids.forEach((p, i) => {
+        setTimeout(() => {
+          p.classList.add('show');
+          const rot = p.style.getPropertyValue('--rot') || '0deg';
+          const jitterX = (Math.random() * 25 - 12).toFixed(1);
+          const jitterY = (Math.random() * 20 - 10).toFixed(1);
+          p.style.transition = 'transform 1.3s cubic-bezier(0.18,0.9,0.23,1), opacity 0.9s ease';
+          p.style.transform = `rotate(${rot}) translate(${jitterX}px, ${jitterY}px) scale(1)`;
+        }, i * 450);
+      });
+      // Shimmer
+      shimmer.style.transition = 'transform 1.8s ease, opacity 1.3s ease';
+      shimmer.style.opacity = '1';
+      shimmer.style.transform = 'translateX(120%)';
+      setTimeout(() => {
+        shimmer.style.opacity = '0';
+        shimmer.style.transform = 'translateX(-120%)';
+      }, 2000);
+      // Gentle float
+      gentleFloat();
     }
+
+    closeMessage.addEventListener('click', () => {
+      messageModal.classList.remove('show');
+    });
+
+    // Video Modal
+    const videoModal = document.getElementById('videoModal');
+    const video = videoModal.querySelector('video');
+    const videoMessage = document.getElementById('videoMessage');
+    const closeVideo = document.getElementById('closeVideo');
+
+    // Reveal Love: Show video modal
+    const revealBtn = document.getElementById('revealBtn');
+    revealBtn.addEventListener('click', () => {
+      const rect = document.getElementById('stage').getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      heartFire(cx, cy, 50);
+      confettiBurst();
+      setTimeout(() => {
+        videoModal.classList.add('show');
+        video.play();
+        video.onended = () => {
+          videoModal.classList.add('show-message');
+        };
+      }, 1400);
+    });
+
+    closeVideo.addEventListener('click', () => {
+      videoModal.classList.remove('show', 'show-message');
+      video.pause();
+      video.currentTime = 0;
+    });
+
+    function gentleFloat() {
+      polaroids.forEach((p, idx) => {
+        const dir = Math.random() > 0.5 ? 1 : -1;
+        const amp = 14 + Math.random() * 18;
+        p.animate([
+          { transform: p.style.transform },
+          { transform: p.style.transform.replace('scale(1)', `scale(1.05) translateY(${dir * amp}px)`) },
+          { transform: p.style.transform }
+        ], {
+          duration: 5500 + Math.random() * 3500,
+          iterations: Infinity,
+          easing: 'ease-in-out',
+          delay: idx * 250
+        });
+      });
+    }
+
+    // Confetti Burst
+    function confettiBurst() {
+      for (let i = 0; i < 70; i++) {
+        const el = document.createElement('div');
+        el.className = 'confetti';
+        el.style.left = (Math.random() * 100) + 'vw';
+        el.style.top = (Math.random() * 100) + 'vh';
+        el.style.background = Math.random() > 0.5 ? 'var(--accent)' : 'var(--gold)';
+        document.body.appendChild(el);
+
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 140 + Math.random() * 300;
+        const destX = Math.cos(angle) * dist;
+        const destY = Math.sin(angle) * dist;
+
+        el.animate([
+          { transform: 'translate(0,0) scale(1)', opacity: 1 },
+          { transform: `translate(${destX}px, ${destY}px) scale(0.7)`, opacity: 0 }
+        ], {
+          duration: 1400 + Math.random() * 1000,
+          easing: 'cubic-bezier(0.2,0.9,0.2,1)'
+        });
+
+        setTimeout(() => el.remove(), 2400);
+      }
+    }
+
+    // Heart Fireworks
+    function heartFire(x, y, count) {
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.textContent = '❤️';
+        el.style.position = 'fixed';
+        el.style.left = (x - 15) + 'px';
+        el.style.top = (y - 15) + 'px';
+        el.style.fontSize = (18 + Math.random() * 30) + 'px';
+        el.style.pointerEvents = 'none';
+        el.style.zIndex = 60;
+        el.style.opacity = 1;
+        el.style.transform = `translate(0,0) rotate(${Math.random() * 90 - 45}deg)`;
+        document.body.appendChild(el);
+
+        const angle = Math.random() * Math.PI * 2;
+        const dist = 140 + Math.random() * 250;
+        const destX = Math.cos(angle) * dist;
+        const destY = Math.sin(angle) * dist - (100 + Math.random() * 150);
+
+        el.animate([
+          { transform: el.style.transform + ' translate(0,0) scale(1)', opacity: 1 },
+          { transform: el.style.transform + ` translate(${destX}px, ${destY}px) scale(0.8)`, opacity: 0.95 },
+          { transform: el.style.transform + ` translate(${destX * 1.6}px, ${destY * 1.6}px) scale(0.4)`, opacity: 0 }
+        ], {
+          duration: 1400 + Math.random() * 900,
+          easing: 'cubic-bezier(0.2,0.9,0.2,1)'
+        });
+
+        setTimeout(() => el.remove(), 2300);
+      }
+    }
+
+    // Accessibility
+    startBtn.addEventListener('keyup', (e) => { if (e.key === 'Enter') startSurprise(); });
+    revealBtn.addEventListener('keyup', (e) => { if (e.key === 'Enter') revealBtn.click(); });
+    closeMessage.addEventListener('keyup', (e) => { if (e.key === 'Enter') closeMessage.click(); });
+    closeVideo.addEventListener('keyup', (e) => { if (e.key === 'Enter') closeVideo.click(); });
+
+    // Initial pop-in
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.polaroid').forEach((p, idx) => {
+        setTimeout(() => {
+          p.style.opacity = 0;
+        }, 100 + idx * 70);
+      });
+    });
+
+    // Show first polaroid
+    setTimeout(() => {
+      const first = polaroids[0];
+      if (first) {
+        first.classList.add('show');
+        first.style.transform = `rotate(${getComputedStyle(first).getPropertyValue('--rot')}) translate(7px,-9px) scale(1)`;
+      }
+    }, 1000);
   </script>
 </body>
 </html>
